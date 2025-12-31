@@ -5,11 +5,11 @@
   <title>GET F***ED | Johnny3x.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: RVO INC. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED QYPU." />
+  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: RVO INC. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED." />
   
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://johnny3x.com/" />
-  <meta property="og:title" content="TC GRIEFED | RVO INC | johnny3x.com" />
+  <meta property="og:title" content="TC GRIEFED | RVO INC | johnny3x.com | GET F***ED" />
   <meta property="og:description" content="[03:45:01 PM] Targeted raid successful. RVO INC has assumed control. [03:45:15 PM] RANSOM SET: $3,000.00 USD." />
   <meta property="og:image" content="https://cdn.discordapp.com/attachments/1453155109868404861/1455721509627887849/rust-noon-artwork-rd8t5ktlkp0qiirc.jpg?ex=6955c1cd&is=6954704d&hm=8cc416964d3c3ced70deef4122e3fa4f8832f37c90037aa65c8a940816cbcae1&" />
 
@@ -169,6 +169,84 @@
       text-shadow: 0 0 10px var(--rust-orange);
     }
 
+    /* PROJECTION TERMINAL STYLES */
+    .projection-terminal {
+        background: #050505;
+        border: 1px solid #1a1a1a;
+        padding: 20px;
+        margin: 20px 0 40px 0;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.85rem;
+        color: #555;
+    }
+    .projection-header {
+        color: var(--rust-orange);
+        border-bottom: 1px solid #222;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+    }
+    #projectionRows {
+        max-height: 350px;
+        overflow-y: scroll;
+        padding-right: 10px;
+    }
+    #projectionRows::-webkit-scrollbar {
+        width: 5px;
+    }
+    #projectionRows::-webkit-scrollbar-track {
+        background: #000;
+    }
+    #projectionRows::-webkit-scrollbar-thumb {
+        background: var(--rust-orange);
+    }
+    .projection-row {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+        padding: 8px;
+        border-bottom: 1px solid #111;
+        word-break: break-all;
+    }
+    .projection-row.active {
+        background: rgba(120, 163, 66, 0.1);
+        color: var(--rust-green);
+        border: 1px solid rgba(120, 163, 66, 0.3);
+    }
+    .row-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        font-size: 0.75rem;
+        opacity: 0.8;
+    }
+    .row-data-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .row-multiplier {
+        font-size: 0.75rem;
+        color: #444;
+        background: #111;
+        padding: 2px 6px;
+        border-radius: 2px;
+    }
+    .projection-row.active .row-multiplier {
+        color: var(--rust-green);
+        border: 1px solid rgba(120, 163, 66, 0.2);
+    }
+    .row-value {
+        font-weight: bold;
+        text-align: right;
+        color: #fff;
+    }
+    .projection-row.active .row-value {
+        color: var(--rust-green);
+    }
+
     .contact-form { background: #0d0d0d; padding: 30px; border: 1px solid #222; }
     .input-group { margin-bottom: 25px; }
 
@@ -193,6 +271,74 @@
       cursor: pointer;
       font-size: 1.2rem;
     }
+
+    .btn-license {
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 15px;
+        background: transparent;
+        border: 1px solid var(--rust-orange);
+        color: var(--rust-orange);
+        font-family: 'Share Tech Mono', monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-license:hover {
+        background: var(--rust-orange);
+        color: white;
+    }
+
+    /* MODAL STYLES */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        z-index: 100;
+        overflow-y: auto;
+        padding: 40px 20px;
+    }
+
+    .modal-content {
+        max-width: 950px;
+        width: 100%;
+        margin: 0 auto;
+        background: #0a0a0a;
+        border: 1px solid #2a2a2a;
+        padding: 60px;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        line-height: 1.6;
+        font-family: 'Share Tech Mono', monospace;
+        text-transform: none; 
+    }
+
+    .header-stripe {
+        position: absolute;
+        top: 0; left: 0; width: 5px; height: 100%;
+        background: var(--rust-orange);
+    }
+
+    .modal-header { border-bottom: 1px solid #2a2a2a; padding-bottom: 30px; margin-bottom: 40px; }
+    .company-name { color: var(--rust-orange); font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+    .modal-h1 { color: #fff; font-size: 1.8rem; margin: 10px 0; text-transform: uppercase; letter-spacing: 1px; }
+    .status-tag { font-size: 0.75rem; color: #78a342; border: 1px solid #78a342; padding: 2px 10px; display: inline-block; margin-top: 5px; }
+    .clause { margin-bottom: 30px; padding-left: 20px; border-left: 1px solid #1a1a1a; }
+    .clause-number { color: var(--rust-orange); font-size: 0.8rem; font-weight: bold; display: block; margin-bottom: 8px; }
+    .modal-h2 { font-size: 1rem; color: #fff; margin: 0 0 12px 0; text-transform: uppercase; }
+    .bold-term { color: #fff; text-decoration: underline; text-decoration-color: #333; }
+    .notabene { background: rgba(205, 65, 43, 0.05); border: 1px dashed var(--rust-orange); padding: 20px; margin: 20px 0; font-size: 0.85rem; }
+    .statutory-list { list-style: none; padding: 0; font-size: 0.8rem; color: #666; }
+    .statutory-list li { margin-bottom: 5px; display: flex; gap: 10px; }
+    .statutory-list li::before { content: "▪"; color: var(--rust-orange); }
+    .modal-footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #2a2a2a; display: flex; justify-content: space-between; align-items: flex-end; font-size: 0.75rem; color: #555; }
+    .seal { border: 2px solid var(--rust-orange); color: var(--rust-orange); padding: 10px; text-align: center; font-weight: bold; opacity: 0.7; }
+    .close-modal { position: absolute; top: 20px; right: 20px; color: #666; cursor: pointer; font-size: 1.5rem; }
 
     @keyframes text-shiver {
       0% { transform: translate(0, 0); }
@@ -243,6 +389,9 @@
     </div>
 
     <div class="content-container">
+      
+      <button class="btn-license" onclick="openModal()">VIEW ASSET RECLAMATION LICENSE (LEGAL)</button>
+
       <div class="faq-item">
         <span class="question">Ownership Status</span>
         <span class="answer">The assets listed above—including the primary TLDs and the entire portfolio of Johnny3x branded digital properties—have been <strong>RECLAIMED</strong> by RVO INC. The former tenant, <strong>QYPU</strong>, has no remaining legal claim or technical access to this infrastructure.</span>
@@ -255,11 +404,26 @@
           <br>
           <strong>YOUR LOCAL SEIZURE TIME:</strong> <span id="localTimeStatic" style="color: #fff;"></span>
           <br><br>
-          The reclamation fee increases by <strong>$5.00 USD</strong> every 24 hours until the deadline is reached.
+          The reclamation fee follows a <strong>Linear Compound Spite Model</strong>. The fee starts at $3,000.00 and scales daily to reach exactly <strong>$100,000.00</strong> on the final day of the requisition window.
         </span>
       </div>
 
+      <!-- PRICE PROJECTION TERMINAL -->
+      <div class="projection-terminal">
+          <div class="projection-header">
+              <span>PRICING PROJECTION [CALIBRATED TO $100K CEILING]</span>
+              <span>RVO-PROJ-V2-CALIBRATED</span>
+          </div>
+          <div id="projectionRows">
+              <!-- Full schedule injected by JS -->
+          </div>
+          <div style="margin-top: 15px; font-size: 0.7rem; border-top: 1px solid #1a1a1a; padding-top: 10px; color: #333;">
+              * SCHEDULE CALCULATED TO REACH MAX CEILING ON DAY 365. TOTAL = $3000 * (1.0097)^Day.
+          </div>
+      </div>
+
       <div class="timer-container">
+        <div style="font-family: 'Share Tech Mono'; font-size: 0.7rem; color: var(--rust-orange); margin-bottom: 5px;">TIME UNTIL NEXT DAILY ACCRETION:</div>
         <div class="timer-display" id="priceTimer">00:00:00</div>
       </div>
 
@@ -287,14 +451,93 @@
     </div>
   </div>
 
+  <!-- LEGAL MODAL -->
+  <div id="licenseModal" class="modal">
+    <div class="modal-content">
+        <div class="header-stripe"></div>
+        <span class="close-modal" onclick="closeModal()">[X]</span>
+        
+        <header class="modal-header">
+            <div class="company-name">RVO INCORPORATED</div>
+            <h1 class="modal-h1">Digital Asset Requisition & Private Lien</h1>
+            <div class="status-tag">ASSET CLASS: VESTED INFRASTRUCTURE</div>
+        </header>
+
+        <div class="clause">
+            <span class="clause-number">CLAUSE 1.0</span>
+            <h2 class="modal-h2">Administrative Requisition</h2>
+            <p>Effective immediately, RVO INC (the "Holder") has executed a <span class="bold-term">Total Infrastructure Griefing</span> (TIG) of the digital gateways previously managed by the entity "QYPU" (the "Grantor"). This instrument serves as formal notice of a <span class="bold-term">Possessory Lien</span> over the Grantor's DNS entries, master routing tables, and cryptographic handshakes.</p>
+        </div>
+
+        <div class="clause">
+            <span class="clause-number">CLAUSE 2.0</span>
+            <h2 class="modal-h2">Bifurcation of Property Rights</h2>
+            <p>The Holder acknowledges that the <span class="bold-term">Proprietary Identity</span>—specifically the name "Johnny3x" and the associated "Rust Game Server" operations—remain the sovereign property of the Grantor. This Requisition is strictly limited to the <span class="bold-term">Network Transit Rails</span>. The Holder assumes no liability for the identity of the brand, only absolute control over the conduits through which said brand is accessed.</p>
+        </div>
+
+        <div class="notabene">
+            <strong>NOTICE OF INTENT:</strong> The "Johnny3x" moniker is protected under standard intellectual property statutes. RVO INC does not represent itself as the operator of the Rust server; rather, RVO INC operates the <span class="bold-term">Primary Bridge</span> to said server and has raised the toll indefinitely.
+        </div>
+
+        <div class="clause">
+            <span class="clause-number">CLAUSE 3.0</span>
+            <h2 class="modal-h2">Restoration Indemnity</h2>
+            <p>To release this Lien and regain administrative parity, the Grantor must remit a <span class="bold-term">Restoration Bond</span>. The cost scales daily from the base $3,000.00 to reach exactly <span class="bold-term">$100,000.00</span> on the final day of the window. Failure to provide satisfaction constitutes a <span class="bold-term">Voluntary Forfeiture</span> of the hardware rails.</p>
+        </div>
+
+        <div class="clause">
+            <span class="clause-number">CLAUSE 4.0</span>
+            <h2 class="modal-h2">Statutory Enforcement</h2>
+            <ul class="statutory-list">
+                <li>Compliance with Digital Maritime Code § 404 (Possession is 9/10ths of the Network).</li>
+                <li>Adherence to the Right to Spite Doctrine (Private Infrastructure Redirection).</li>
+                <li>Verification of Master-Key override and SSL Certificate revocation.</li>
+            </ul>
+        </div>
+
+        <div class="modal-footer">
+            <div>
+                <div style="border-bottom: 1px solid #333; width: 250px; margin-bottom: 5px;"></div>
+                EXECUTED BY: RVO ASSET PROTECTION DIV.<br>
+                DATE OF SEIZURE: DEC 30, 2025<br>
+                REF: J3X-REQUISITION-772
+            </div>
+            <div class="seal">
+                TC GRIEFED<br>
+                <span style="font-size:0.6rem;">VALIDATED ASSET</span><br>
+                RVO INC
+            </div>
+        </div>
+    </div>
+  </div>
+
   <script>
-    const BASE_PRICE = 3000;
-    const DAILY_INCREASE = 5;
+    const BASE_PRICE = 3000; 
+    const MAX_PRICE = 100000;
     const SEIZURE_UTC_ISO = "2025-12-30T21:45:00Z"; 
     const START_DATE = new Date(SEIZURE_UTC_ISO); 
     const EXPIRY_DATE = new Date(START_DATE.getTime() + (365 * 24 * 60 * 60 * 1000));
     
+    // Growth rate: (100000/3000)^(1/365)
+    const GROWTH_RATE = Math.pow(MAX_PRICE / BASE_PRICE, 1 / 365);
+
     let currentMinGlobal = BASE_PRICE;
+    let hasInitiallyAutoscrolled = false;
+
+    // Helper to calculate price for a specific day index
+    function calculatePriceForDay(dayIndex) {
+        if (dayIndex <= 0) return BASE_PRICE;
+        if (dayIndex >= 365) return MAX_PRICE;
+        return Math.floor(BASE_PRICE * Math.pow(GROWTH_RATE, dayIndex));
+    }
+
+    // Modal Control
+    function openModal() { document.getElementById('licenseModal').style.display = 'block'; }
+    function closeModal() { document.getElementById('licenseModal').style.display = 'none'; }
+    window.onclick = function(event) {
+        let modal = document.getElementById('licenseModal');
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
 
     function setupTimezones() {
       const options = { 
@@ -317,7 +560,8 @@
       const diffTime = Math.max(0, now - START_DATE);
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       
-      currentMinGlobal = BASE_PRICE + (diffDays * DAILY_INCREASE);
+      currentMinGlobal = calculatePriceForDay(diffDays);
+
       const nextUpdateDate = new Date(START_DATE.getTime() + (diffDays + 1) * (1000 * 60 * 60 * 24));
       const timeLeft = nextUpdateDate - now;
 
@@ -329,8 +573,49 @@
         `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
       
       document.getElementById('ransomLog').innerText = `[03:45:15 PM] MINIMUM RECLAMATION FEE: $${currentMinGlobal.toLocaleString()}.00 USD.`;
-      document.getElementById('offerLabel').innerText = `OFFER AMOUNT (USD) - MIN: $${currentMinGlobal}`;
-      document.getElementById('offer').placeholder = `MINIMUM ${currentMinGlobal}`;
+      document.getElementById('offerLabel').innerText = `OFFER AMOUNT (USD) - MIN: $${currentMinGlobal.toLocaleString()}`;
+      document.getElementById('offer').placeholder = `MINIMUM ${currentMinGlobal.toLocaleString()}`;
+
+      if (!window.lastGeneratedDay || window.lastGeneratedDay !== diffDays) {
+          generateProjection(diffDays);
+          window.lastGeneratedDay = diffDays;
+      }
+    }
+
+    function generateProjection(currentDay) {
+        const projectionContainer = document.getElementById('projectionRows');
+        let html = "";
+        
+        for(let i = 0; i <= 365; i++) {
+            const price = calculatePriceForDay(i);
+            const multiplier = (price / BASE_PRICE).toFixed(3);
+            const isActive = i === currentDay;
+            const date = new Date(START_DATE.getTime() + (i * 24 * 60 * 60 * 1000));
+            const dateStr = date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: '2-digit' });
+
+            html += `
+                <div class="projection-row ${isActive ? 'active' : ''}" id="day-row-${i}">
+                    <div class="row-meta">
+                        <span>DAY ${i} | ${dateStr} ${isActive ? ' [LIVE]' : ''}</span>
+                    </div>
+                    <div class="row-data-line">
+                        <span class="row-multiplier">${multiplier}x MULTIPLIER</span>
+                        <span class="row-value">$${price.toLocaleString()}</span>
+                    </div>
+                </div>
+            `;
+        }
+        projectionContainer.innerHTML = html;
+        
+        if (!hasInitiallyAutoscrolled) {
+            const activeRow = document.getElementById(`day-row-${currentDay}`);
+            if (activeRow) {
+                setTimeout(() => {
+                    activeRow.scrollIntoView({ behavior: 'auto', block: 'center' });
+                }, 100);
+            }
+            hasInitiallyAutoscrolled = true;
+        }
     }
 
     setupTimezones();
@@ -345,7 +630,9 @@
       const message = document.getElementById('message').value;
       const status = document.getElementById('statusMessage');
 
-      if (offer < currentMinGlobal) {
+      const numericOffer = parseInt(offer);
+
+      if (numericOffer < currentMinGlobal) {
         status.style.color = "var(--rust-orange)";
         status.innerText = ">> REJECTED: OFFER BELOW MINIMUM.";
         return;
@@ -359,7 +646,7 @@
           color: 13451563,
           fields: [
             { name: "Identity", value: name, inline: true },
-            { name: "Offer", value: "$" + offer, inline: true },
+            { name: "Offer", value: "$" + numericOffer.toLocaleString(), inline: true },
             { name: "Message", value: "```" + (message || "No text provided.") + "```" }
           ]
         }]
