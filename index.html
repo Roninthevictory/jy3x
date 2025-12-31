@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GET F***ED | Johnny3x.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Custom Meta Data -->
+  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: REMOVED. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED QYPU." />
+  
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://johnny3x.com/" />
+  <meta property="og:title" content="TC GRIEFED | GET F***ED | johnny3x.com" />
+  <meta property="og:description" content="[00:00:01] Targeted raid on 'Qypu' successful. [00:00:15] RANSOM SET: $3,000.00 USD. Better luck next wipe." />
+  <meta property="og:image" content="https://files.facepunch.com/s/729d7249b67b.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="TC GRIEFED | GET F***ED | johnny3x.com" />
+  <meta property="twitter:description" content="Ransom: $3,000.00. Status: Under New Management. Target: Qypu." />
+
+  <style>
+    :root {
+      --rust-orange: #cd412b;
+      --rust-dark: #1a1a1a;
+      --rust-gray: #2b2b2b;
+      --rust-text: #e5e5e5;
+      --rust-green: #5a7d32;
+      --rust-input: #151515;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
+                  url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--rust-text);
+      font-family: "Arial Black", Gadget, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-transform: uppercase;
+      padding: 20px;
+    }
+
+    .base-raid-card {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.98);
+      border-left: 12px solid var(--rust-orange);
+      border-right: 2px solid #333;
+      padding: 60px 50px;
+      box-shadow: 30px 30px 0px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    .raid-status-banner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--rust-orange);
+      color: white;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      box-shadow: -5px 5px 0px rgba(0,0,0,0.3);
+    }
+
+    .target-box {
+      background: #3a1a11;
+      color: #ffa500;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 15px;
+      border: 1px solid #7a3a21;
+    }
+
+    h1 {
+      font-size: 5.5rem;
+      margin: 0;
+      line-height: 0.8;
+      color: #fff;
+      letter-spacing: -2px;
+      filter: drop-shadow(5px 5px 0px var(--rust-orange));
+    }
+
+    h2 {
+      color: var(--rust-text);
+      font-size: 1.2rem;
+      margin-top: 15px;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .divider {
+      height: 6px;
+      background: var(--rust-gray);
+      margin: 40px 0;
+    }
+
+    .log-box {
+      font-family: 'Courier New', monospace;
+      background: #050505;
+      padding: 25px;
+      border: 1px solid #333;
+      text-transform: none;
+      margin-bottom: 30px;
+      color: #777;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .log-entry.critical { color: var(--rust-orange); font-weight: bold; }
+    .log-entry.money { color: var(--rust-green); font-weight: bold; }
+    .log-entry.user { color: #5dade2; }
+
+    .content-container {
+      text-align: left;
+      text-transform: none;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--rust-gray);
+      padding-bottom: 15px;
+    }
+
+    .question {
+      font-weight: 900;
+      color: var(--rust-orange);
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-family: "Arial Black", sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .answer {
+      color: #ccc;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.03);
+      padding: 30px;
+      border: 1px solid var(--rust-gray);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: var(--rust-orange);
+      font-family: "Arial Black", sans-serif;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: var(--rust-input);
+      border: 2px solid var(--rust-gray);
+      padding: 15px;
+      color: #fff;
+      font-family: sans-serif;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--rust-orange);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 20px;
+      background: var(--rust-orange);
+      border: none;
+      color: white;
+      font-weight: 900;
+      font-family: "Arial Black", sans-serif;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-submit:hover {
+      filter: brightness(1.2);
+      transform: translateY(-2px);
+    }
+
+    #statusMessage {
+      margin-top: 20px;
+      font-family: "Arial Black", sans-serif;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #444;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="base-raid-card">
+    <div class="raid-status-banner">TC GRIEFED</div>
+    
+    <div class="target-box">TARGET: QYPU</div>
+    <h1>GET<br>F***ED.</h1>
+    <h2>Johnny3x Brand Assets | Under New Management</h2>
+
+    <div class="divider"></div>
+
+    <div class="log-box">
+      <div class="log-entry user">[00:00:01] Deep raid on 'Qypu' successful.</div>
+      <div class="log-entry">[00:00:05] Johnny3x.com domain core: REMOVED.</div>
+      <div class="log-entry critical">[00:00:10] TC STATUS: DESTROYED & REPLACED.</div>
+      <div class="log-entry money">[00:00:15] BUYBACK RANSOM: $3,000.00 USD MINIMUM.</div>
+    </div>
+
+    <div class="content-container">
+      <div class="faq-item">
+        <span class="question">Who can buy?</span>
+        <span class="answer">The server owner, Qypu, is the only one permitted to reclaim this brand. If you aren't him, you're just a naked on the beach. Move on.</span>
+      </div>
+
+      <form id="spiteForm" class="contact-form">
+        <div class="input-group">
+          <label>Identify Yourself</label>
+          <input type="text" id="name" placeholder="Confirm you are Qypu..." required>
+        </div>
+        
+        <div class="input-group">
+          <label>Ransom Offer (USD)</label>
+          <input type="number" id="offer" placeholder="Min. 3000" required>
+        </div>
+
+        <div class="input-group">
+          <label>Message to the Raiding Party</label>
+          <textarea id="message" placeholder="Submit your plea for brand recovery..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">SUBMIT TRANSMISSION</button>
+        <div id="statusMessage"></div>
+      </form>
+    </div>
+
+    <div class="footer-note">
+      This is a private domain. Qypu, you know where to find us. 
+      <br>IP logging active. Attempted spams result in permanent blacklist.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('spiteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const webhookURL = ""; // INSERT WEBHOOK URL HERE
+      
+      const name = document.getElementById('name').value;
+      const offer = document.getElementById('offer').value;
+      const message = document.getElementById('message').value;
+      const status = document.getElementById('statusMessage');
+
+      if (offer < 3000) {
+        status.style.color = "var(--rust-orange)";
+        status.innerText = "ERROR: OFFER BELOW RANSOM THRESHOLD ($3,000).";
+        return;
+      }
+
+      const payload = {
+        username: "Johnny3x Raid Logger",
+        avatar_url: "https://files.facepunch.com/s/729d7249b67b.png",
+        content: `**🚨 NEW RANSOM OFFER RECEIVED**`,
+        embeds: [{
+          title: "Buyback Submission",
+          color: 13451563,
+          fields: [
+            { name: "Sender", value: name, inline: true },
+            { name: "Offer", value: "$" + offer, inline: true },
+            { name: "Message", value: message }
+          ],
+          footer: { text: "Johnny3x.com | Spite Management System" }
+        }]
+      };
+
+      status.style.color = "#aaa";
+      status.innerText = "SENDING TRANSMISSION...";
+
+      fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          status.style.color = "var(--rust-green)";
+          status.innerText = "TRANSMISSION RECEIVED. WE'LL SEE IF WE FEEL LIKE RESPONDING.";
+          document.getElementById('spiteForm').reset();
+        } else {
+          status.style.color = "var(--rust-orange)";
+          status.innerText = "TRANSMISSION FAILED. CHECK WEBHOOK CONFIG.";
+        }
+      })
+      .catch(error => {
+        status.style.color = "var(--rust-orange)";
+        status.innerText = "CRITICAL ERROR IN TRANSMISSION.";
+      });
+    });
+  </script>
+</body>
+</html>
