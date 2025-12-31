@@ -5,13 +5,18 @@
   <title>GET F***ED | Johnny3x.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: RVO INC. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED." />
+  <!-- FAVICON & ASSETS -->
+  <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&">
+  <link rel="apple-touch-icon" href="https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&">
+
+  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: RVO INC. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED QYPU." />
   
+  <!-- LINK EMBED / OPENGRAPH -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://johnny3x.com/" />
   <meta property="og:title" content="TC GRIEFED | RVO INC | johnny3x.com | GET F***ED" />
   <meta property="og:description" content="[03:45:01 PM] Targeted raid successful. RVO INC has assumed control. [03:45:15 PM] RANSOM SET: $3,000.00 USD." />
-  <meta property="og:image" content="https://cdn.discordapp.com/attachments/1453155109868404861/1455721509627887849/rust-noon-artwork-rd8t5ktlkp0qiirc.jpg?ex=6955c1cd&is=6954704d&hm=8cc416964d3c3ced70deef4122e3fa4f8832f37c90037aa65c8a940816cbcae1&" />
+  <meta property="og:image" content="https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&" />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
@@ -86,6 +91,14 @@
       animation: flicker 4s infinite;
     }
 
+    .main-logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+        filter: grayscale(1) contrast(1.2);
+        opacity: 0.8;
+    }
+
     .target-box {
       background: #3a1a11;
       color: #ffa500;
@@ -134,8 +147,6 @@
     .log-entry.asset { color: #666; font-size: 0.85rem; padding-left: 20px; border-left: 1px solid #222; }
     .local-time-tag { color: #ffa500; font-size: 0.8rem; margin-left: 10px; }
 
-    .content-container { text-align: left; text-transform: none; }
-
     .faq-item {
       margin-bottom: 25px;
       border-left: 3px solid var(--rust-gray);
@@ -150,7 +161,7 @@
       text-transform: uppercase;
     }
 
-    .answer { color: #aaa; line-height: 1.6; }
+    .answer { color: #aaa; line-height: 1.6; text-transform: none; }
 
     .timer-container {
       background: #000;
@@ -169,7 +180,6 @@
       text-shadow: 0 0 10px var(--rust-orange);
     }
 
-    /* PROJECTION TERMINAL STYLES */
     .projection-terminal {
         background: #050505;
         border: 1px solid #1a1a1a;
@@ -208,7 +218,7 @@
         margin-bottom: 8px;
         padding: 8px;
         border-bottom: 1px solid #111;
-        word-break: break-all;
+        text-transform: none;
     }
     .projection-row.active {
         background: rgba(120, 163, 66, 0.1);
@@ -247,10 +257,10 @@
         color: var(--rust-green);
     }
 
-    .contact-form { background: #0d0d0d; padding: 30px; border: 1px solid #222; }
+    .contact-form { background: #0d0d0d; padding: 30px; border: 1px solid #222; text-transform: none; }
     .input-group { margin-bottom: 25px; }
 
-    label { display: block; color: var(--rust-orange); font-size: 0.8rem; margin-bottom: 10px; }
+    label { display: block; color: var(--rust-orange); font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase; }
 
     input, textarea {
       width: 100%;
@@ -270,6 +280,7 @@
       font-weight: 900;
       cursor: pointer;
       font-size: 1.2rem;
+      text-transform: uppercase;
     }
 
     .btn-license {
@@ -293,7 +304,6 @@
         color: white;
     }
 
-    /* MODAL STYLES */
     .modal {
         display: none;
         position: fixed;
@@ -337,7 +347,20 @@
     .statutory-list li { margin-bottom: 5px; display: flex; gap: 10px; }
     .statutory-list li::before { content: "▪"; color: var(--rust-orange); }
     .modal-footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #2a2a2a; display: flex; justify-content: space-between; align-items: flex-end; font-size: 0.75rem; color: #555; }
-    .seal { border: 2px solid var(--rust-orange); color: var(--rust-orange); padding: 10px; text-align: center; font-weight: bold; opacity: 0.7; }
+    
+    .seal-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .seal-img {
+        width: 60px;
+        height: 60px;
+        filter: grayscale(1) brightness(0.7) sepia(1) hue-rotate(-50deg) saturate(5);
+        opacity: 0.6;
+    }
+    .seal-text { border: 2px solid var(--rust-orange); color: var(--rust-orange); padding: 5px 10px; text-align: center; font-weight: bold; }
     .close-modal { position: absolute; top: 20px; right: 20px; color: #666; cursor: pointer; font-size: 1.5rem; }
 
     @keyframes text-shiver {
@@ -360,6 +383,8 @@
   <div class="base-raid-card">
     <div class="raid-status-banner">TC GRIEFED</div>
     
+    <img src="https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&" class="main-logo" alt="RVO INC">
+
     <div class="target-box">ENCRYPTED TARGET: QYPU</div>
     
     <h1>GET <span class="glitch-text">F***ED.</span></h1>
@@ -381,8 +406,7 @@
       <div class="log-entry asset">> johnny3x.com [SEIZED]</div>
       <div class="log-entry asset">> johnny3x.net [SEIZED]</div>
       <div class="log-entry asset">> johnny3x.online [SEIZED]</div>
-      <div class="log-entry asset">> johnny3x.store [SEIZED]</div>
-      <div class="log-entry asset">> [SYSTEM]: OVER 20+ ADDITIONAL JOHNNY3X BRANDED DOMAINS & SUBDOMAINS IDENTIFIED AND RECLAIMED.</div>
+      <div class="log-entry asset">> [SYSTEM]: OVER 20+ ADDITIONAL JOHNNY3X BRANDED DOMAINS RECLAIMED.</div>
       
       <div class="log-entry critical">[03:45:10 PM] SECURITY PROTOCOLS BYPASSED. AUTH REVOKED.</div>
       <div class="log-entry money" id="ransomLog">[03:45:15 PM] MINIMUM RECLAMATION FEE: $3,000.00 USD.</div>
@@ -416,9 +440,6 @@
           </div>
           <div id="projectionRows">
               <!-- Full schedule injected by JS -->
-          </div>
-          <div style="margin-top: 15px; font-size: 0.7rem; border-top: 1px solid #1a1a1a; padding-top: 10px; color: #333;">
-              * SCHEDULE CALCULATED TO REACH MAX CEILING ON DAY 365. TOTAL = $3000 * (1.0097)^Day.
           </div>
       </div>
 
@@ -472,27 +493,11 @@
         <div class="clause">
             <span class="clause-number">CLAUSE 2.0</span>
             <h2 class="modal-h2">Bifurcation of Property Rights</h2>
-            <p>The Holder acknowledges that the <span class="bold-term">Proprietary Identity</span>—specifically the name "Johnny3x" and the associated "Rust Game Server" operations—remain the sovereign property of the Grantor. This Requisition is strictly limited to the <span class="bold-term">Network Transit Rails</span>. The Holder assumes no liability for the identity of the brand, only absolute control over the conduits through which said brand is accessed.</p>
+            <p>The Holder acknowledges that the <span class="bold-term">Proprietary Identity</span>—specifically the name "Johnny3x" and the associated "Rust Game Server" operations—remain the sovereign property of the Grantor. This Requisition is strictly limited to the <span class="bold-term">Network Transit Rails</span>.</p>
         </div>
 
         <div class="notabene">
             <strong>NOTICE OF INTENT:</strong> The "Johnny3x" moniker is protected under standard intellectual property statutes. RVO INC does not represent itself as the operator of the Rust server; rather, RVO INC operates the <span class="bold-term">Primary Bridge</span> to said server and has raised the toll indefinitely.
-        </div>
-
-        <div class="clause">
-            <span class="clause-number">CLAUSE 3.0</span>
-            <h2 class="modal-h2">Restoration Indemnity</h2>
-            <p>To release this Lien and regain administrative parity, the Grantor must remit a <span class="bold-term">Restoration Bond</span>. The cost scales daily from the base $3,000.00 to reach exactly <span class="bold-term">$100,000.00</span> on the final day of the window. Failure to provide satisfaction constitutes a <span class="bold-term">Voluntary Forfeiture</span> of the hardware rails.</p>
-        </div>
-
-        <div class="clause">
-            <span class="clause-number">CLAUSE 4.0</span>
-            <h2 class="modal-h2">Statutory Enforcement</h2>
-            <ul class="statutory-list">
-                <li>Compliance with Digital Maritime Code § 404 (Possession is 9/10ths of the Network).</li>
-                <li>Adherence to the Right to Spite Doctrine (Private Infrastructure Redirection).</li>
-                <li>Verification of Master-Key override and SSL Certificate revocation.</li>
-            </ul>
         </div>
 
         <div class="modal-footer">
@@ -502,10 +507,12 @@
                 DATE OF SEIZURE: DEC 30, 2025<br>
                 REF: J3X-REQUISITION-772
             </div>
-            <div class="seal">
-                TC GRIEFED<br>
-                <span style="font-size:0.6rem;">VALIDATED ASSET</span><br>
-                RVO INC
+            <div class="seal-container">
+                <img src="https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&" class="seal-img" alt="Seal">
+                <div class="seal-text">
+                    TC GRIEFED<br>
+                    RVO INC
+                </div>
             </div>
         </div>
     </div>
@@ -517,38 +524,24 @@
     const SEIZURE_UTC_ISO = "2025-12-30T21:45:00Z"; 
     const START_DATE = new Date(SEIZURE_UTC_ISO); 
     const EXPIRY_DATE = new Date(START_DATE.getTime() + (365 * 24 * 60 * 60 * 1000));
-    
-    // Growth rate: (100000/3000)^(1/365)
     const GROWTH_RATE = Math.pow(MAX_PRICE / BASE_PRICE, 1 / 365);
 
     let currentMinGlobal = BASE_PRICE;
     let hasInitiallyAutoscrolled = false;
 
-    // Helper to calculate price for a specific day index
     function calculatePriceForDay(dayIndex) {
         if (dayIndex <= 0) return BASE_PRICE;
         if (dayIndex >= 365) return MAX_PRICE;
         return Math.floor(BASE_PRICE * Math.pow(GROWTH_RATE, dayIndex));
     }
 
-    // Modal Control
     function openModal() { document.getElementById('licenseModal').style.display = 'block'; }
     function closeModal() { document.getElementById('licenseModal').style.display = 'none'; }
-    window.onclick = function(event) {
-        let modal = document.getElementById('licenseModal');
-        if (event.target == modal) { modal.style.display = "none"; }
-    }
-
+    
     function setupTimezones() {
-      const options = { 
-        year: 'numeric', month: '2-digit', day: '2-digit', 
-        hour: '2-digit', minute: '2-digit', hour12: true,
-        timeZoneName: 'short' 
-      };
-      
+      const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true, timeZoneName: 'short' };
       const localStr = START_DATE.toLocaleString(undefined, options);
       const expiryStr = EXPIRY_DATE.toLocaleString(undefined, options);
-      
       document.getElementById('localTime1').innerText = `LOCAL: ${localStr}`;
       document.getElementById('localTime2').innerText = `LOCAL: ${localStr}`;
       document.getElementById('localTimeStatic').innerText = localStr;
@@ -569,9 +562,7 @@
       const m = Math.floor((timeLeft / (1000 * 60)) % 60);
       const s = Math.floor((timeLeft / 1000) % 60);
 
-      document.getElementById('priceTimer').innerText = 
-        `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-      
+      document.getElementById('priceTimer').innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
       document.getElementById('ransomLog').innerText = `[03:45:15 PM] MINIMUM RECLAMATION FEE: $${currentMinGlobal.toLocaleString()}.00 USD.`;
       document.getElementById('offerLabel').innerText = `OFFER AMOUNT (USD) - MIN: $${currentMinGlobal.toLocaleString()}`;
       document.getElementById('offer').placeholder = `MINIMUM ${currentMinGlobal.toLocaleString()}`;
@@ -585,14 +576,12 @@
     function generateProjection(currentDay) {
         const projectionContainer = document.getElementById('projectionRows');
         let html = "";
-        
         for(let i = 0; i <= 365; i++) {
             const price = calculatePriceForDay(i);
             const multiplier = (price / BASE_PRICE).toFixed(3);
             const isActive = i === currentDay;
             const date = new Date(START_DATE.getTime() + (i * 24 * 60 * 60 * 1000));
             const dateStr = date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: '2-digit' });
-
             html += `
                 <div class="projection-row ${isActive ? 'active' : ''}" id="day-row-${i}">
                     <div class="row-meta">
@@ -606,13 +595,10 @@
             `;
         }
         projectionContainer.innerHTML = html;
-        
         if (!hasInitiallyAutoscrolled) {
             const activeRow = document.getElementById(`day-row-${currentDay}`);
             if (activeRow) {
-                setTimeout(() => {
-                    activeRow.scrollIntoView({ behavior: 'auto', block: 'center' });
-                }, 100);
+                setTimeout(() => activeRow.scrollIntoView({ behavior: 'auto', block: 'center' }), 100);
             }
             hasInitiallyAutoscrolled = true;
         }
@@ -625,41 +611,23 @@
     document.getElementById('spiteForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const webhookURL = "https://discord.com/api/webhooks/1455720800807026710/G-BfGmK76NU48_gE2QTxksaYOiqn6ItVJ7VcwqRIb7IT6fJrBWQ8fbjj7eluN4v0X5mC";
-      const name = document.getElementById('name').value;
-      const offer = document.getElementById('offer').value;
-      const message = document.getElementById('message').value;
-      const status = document.getElementById('statusMessage');
-
-      const numericOffer = parseInt(offer);
-
-      if (numericOffer < currentMinGlobal) {
-        status.style.color = "var(--rust-orange)";
-        status.innerText = ">> REJECTED: OFFER BELOW MINIMUM.";
-        return;
-      }
-
       const payload = {
         username: "RVO INC Hijack Monitor",
-        content: `**📡 INCOMING TRANSMISSION**`,
+        avatar_url: "https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&",
         embeds: [{
           title: "Negotiation Attempt",
           color: 13451563,
+          thumbnail: { url: "https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&" },
           fields: [
-            { name: "Identity", value: name, inline: true },
-            { name: "Offer", value: "$" + numericOffer.toLocaleString(), inline: true },
-            { name: "Message", value: "```" + (message || "No text provided.") + "```" }
+            { name: "Identity", value: document.getElementById('name').value, inline: true },
+            { name: "Offer", value: "$" + parseInt(document.getElementById('offer').value).toLocaleString(), inline: true },
+            { name: "Message", value: "```" + (document.getElementById('message').value || "No message.") + "```" }
           ]
         }]
       };
-
-      status.innerText = ">> TRANSMITTING...";
-      fetch(webhookURL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(() => {
-        status.style.color = "var(--rust-green)";
-        status.innerText = ">> TRANSMISSION SUCCESSFUL.";
+      fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      .then(() => {
+        document.getElementById('statusMessage').innerText = ">> TRANSMISSION SUCCESSFUL.";
       });
     });
   </script>
