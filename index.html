@@ -5,37 +5,31 @@
   <title>GET F***ED | Johnny3x.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- Custom Meta Data -->
-  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: REMOVED. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED QYPU." />
+  <meta name="description" content="[SYSTEM] TC GRIEFED. Johnny3x.com core ownership: RVO INC. [RANSOM] $3,000.00 USD MINIMUM. GET F***ED QYPU." />
   
-  <!-- Open Graph / Facebook / Discord -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://johnny3x.com/" />
-  <meta property="og:title" content="TC GRIEFED | GET F***ED | johnny3x.com" />
-  <meta property="og:description" content="[00:00:01] Targeted raid on 'Qypu' successful. [00:00:15] RANSOM SET: $3,000.00 USD. Better luck next wipe." />
+  <meta property="og:title" content="TC GRIEFED | RVO INC | johnny3x.com" />
+  <meta property="og:description" content="[03:45:01 PM] Targeted raid successful. RVO INC has assumed control. [03:45:15 PM] RANSOM SET: $3,000.00 USD." />
   <meta property="og:image" content="https://cdn.discordapp.com/attachments/1453155109868404861/1455721509627887849/rust-noon-artwork-rd8t5ktlkp0qiirc.jpg?ex=6955c1cd&is=6954704d&hm=8cc416964d3c3ced70deef4122e3fa4f8832f37c90037aa65c8a940816cbcae1&" />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="TC GRIEFED | GET F***ED | johnny3x.com" />
-  <meta property="twitter:description" content="Ransom: $3,000.00. Status: Under New Management. Target: Qypu." />
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
     :root {
       --rust-orange: #cd412b;
-      --rust-dark: #1a1a1a;
-      --rust-gray: #2b2b2b;
-      --rust-text: #e5e5e5;
-      --rust-green: #5a7d32;
-      --rust-input: #151515;
+      --rust-dark-orange: #8a2a1c;
+      --rust-dark: #0a0a0a;
+      --rust-gray: #1e1e1e;
+      --rust-text: #d5d5d5;
+      --rust-green: #78a342;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
-                  url('https://cdn.discordapp.com/attachments/1453155109868404861/1455721509627887849/rust-noon-artwork-rd8t5ktlkp0qiirc.jpg?ex=6955c1cd&is=6954704d&hm=8cc416964d3c3ced70deef4122e3fa4f8832f37c90037aa65c8a940816cbcae1&');
-      background-size: cover;
-      background-attachment: fixed;
+      background: #000;
       color: var(--rust-text);
       font-family: "Arial Black", Gadget, sans-serif;
       display: flex;
@@ -44,30 +38,52 @@
       min-height: 100vh;
       text-transform: uppercase;
       padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                  url('https://cdn.discordapp.com/attachments/1453155109868404861/1455721509627887849/rust-noon-artwork-rd8t5ktlkp0qiirc.jpg?ex=6955c1cd&is=6954704d&hm=8cc416964d3c3ced70deef4122e3fa4f8832f37c90037aa65c8a940816cbcae1&');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      animation: bgPulse 10s infinite alternate;
+    }
+
+    .crt-effect {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                  linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 4px, 3px 100%;
+      pointer-events: none;
+      z-index: 10;
     }
 
     .base-raid-card {
-      max-width: 850px;
+      max-width: 900px;
       width: 100%;
-      background: rgba(10, 10, 10, 0.98);
-      border-left: 12px solid var(--rust-orange);
-      border-right: 2px solid #333;
+      background: rgba(10, 10, 10, 0.95);
+      border: 1px solid #333;
+      border-left: 15px solid var(--rust-orange);
       padding: 60px 50px;
-      box-shadow: 30px 30px 0px rgba(0,0,0,0.8);
       position: relative;
+      box-shadow: 0 0 50px rgba(0,0,0,1);
+      backdrop-filter: blur(5px);
     }
 
     .raid-status-banner {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 0; right: 0;
       background: var(--rust-orange);
       color: white;
       padding: 15px 40px;
       font-size: 1.2rem;
       font-weight: 900;
       letter-spacing: 4px;
-      box-shadow: -5px 5px 0px rgba(0,0,0,0.3);
+      animation: flicker 4s infinite;
     }
 
     .target-box {
@@ -76,59 +92,54 @@
       padding: 8px 18px;
       font-size: 0.9rem;
       display: inline-block;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       border: 1px solid #7a3a21;
+      font-family: 'Share Tech Mono', monospace;
     }
 
     h1 {
-      font-size: 5.5rem;
+      font-size: clamp(3.5rem, 10vw, 6.5rem);
       margin: 0;
-      line-height: 0.8;
+      line-height: 0.9;
       color: #fff;
-      letter-spacing: -2px;
-      filter: drop-shadow(5px 5px 0px var(--rust-orange));
     }
 
-    h2 {
-      color: var(--rust-text);
-      font-size: 1.2rem;
-      margin-top: 15px;
-      letter-spacing: 2px;
-      opacity: 0.8;
+    .glitch-text {
+      color: var(--rust-orange);
+      animation: text-shiver 0.2s infinite;
+      display: inline-block;
     }
 
     .divider {
-      height: 6px;
-      background: var(--rust-gray);
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust-orange), transparent);
       margin: 40px 0;
     }
 
     .log-box {
-      font-family: 'Courier New', monospace;
-      background: #050505;
+      font-family: 'Share Tech Mono', monospace;
+      background: rgba(0,0,0,0.8);
       padding: 25px;
-      border: 1px solid #333;
+      border: 1px solid #222;
       text-transform: none;
       margin-bottom: 30px;
-      color: #777;
+      color: #888;
       font-size: 0.95rem;
-      line-height: 1.4;
     }
 
+    .log-entry { margin-bottom: 5px; }
     .log-entry.critical { color: var(--rust-orange); font-weight: bold; }
     .log-entry.money { color: var(--rust-green); font-weight: bold; }
     .log-entry.user { color: #5dade2; }
+    .log-entry.asset { color: #666; font-size: 0.85rem; padding-left: 20px; border-left: 1px solid #222; }
+    .local-time-tag { color: #ffa500; font-size: 0.8rem; margin-left: 10px; }
 
-    .content-container {
-      text-align: left;
-      text-transform: none;
-      font-family: "Segoe UI", sans-serif;
-    }
+    .content-container { text-align: left; text-transform: none; }
 
     .faq-item {
       margin-bottom: 25px;
-      border-bottom: 1px solid var(--rust-gray);
-      padding-bottom: 15px;
+      border-left: 3px solid var(--rust-gray);
+      padding-left: 20px;
     }
 
     .question {
@@ -137,72 +148,39 @@
       display: block;
       margin-bottom: 8px;
       text-transform: uppercase;
-      font-family: "Arial Black", sans-serif;
-      font-size: 1.1rem;
     }
 
-    .answer {
-      color: #ccc;
-      font-style: italic;
-      line-height: 1.6;
-    }
+    .answer { color: #aaa; line-height: 1.6; }
 
     .timer-container {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      padding: 15px;
-      margin-top: 20px;
+      background: #000;
+      border: 1px solid var(--rust-orange);
+      padding: 20px;
+      margin: 30px 0;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-    }
-
-    .timer-label {
-      color: var(--rust-orange);
-      font-family: "Arial Black", sans-serif;
-      font-size: 0.8rem;
     }
 
     .timer-display {
       color: #fff;
-      font-family: 'Courier New', monospace;
-      font-weight: bold;
-      font-size: 1.2rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px var(--rust-orange);
     }
 
-    .contact-form {
-      margin-top: 40px;
-      background: rgba(255,255,255,0.03);
-      padding: 30px;
-      border: 1px solid var(--rust-gray);
-    }
+    .contact-form { background: #0d0d0d; padding: 30px; border: 1px solid #222; }
+    .input-group { margin-bottom: 25px; }
 
-    .input-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      color: var(--rust-orange);
-      font-family: "Arial Black", sans-serif;
-      font-size: 0.85rem;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
+    label { display: block; color: var(--rust-orange); font-size: 0.8rem; margin-bottom: 10px; }
 
     input, textarea {
       width: 100%;
-      background: var(--rust-input);
-      border: 2px solid var(--rust-gray);
+      background: #050505;
+      border: 1px solid #333;
       padding: 15px;
       color: #fff;
-      font-family: sans-serif;
-      font-size: 1rem;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--rust-orange);
+      font-family: 'Share Tech Mono', monospace;
     }
 
     .btn-submit {
@@ -212,148 +190,156 @@
       border: none;
       color: white;
       font-weight: 900;
-      font-family: "Arial Black", sans-serif;
       cursor: pointer;
-      text-transform: uppercase;
       font-size: 1.2rem;
-      letter-spacing: 2px;
-      transition: all 0.2s;
     }
 
-    .btn-submit:hover {
-      filter: brightness(1.2);
-      transform: translateY(-2px);
+    @keyframes text-shiver {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-1px, 1px); }
+      100% { transform: translate(0, 0); }
     }
 
-    #statusMessage {
-      margin-top: 20px;
-      font-family: "Arial Black", sans-serif;
-      text-align: center;
-      font-size: 1rem;
-    }
-
-    .footer-note {
-      margin-top: 40px;
-      font-size: 0.75rem;
-      color: #444;
-      text-align: center;
-      letter-spacing: 1px;
+    @keyframes flicker {
+      0%, 19%, 21%, 100% { opacity: 1; }
+      20%, 22% { opacity: 0.5; }
     }
   </style>
 </head>
 <body>
 
+  <div class="bg-overlay"></div>
+  <div class="crt-effect"></div>
+
   <div class="base-raid-card">
     <div class="raid-status-banner">TC GRIEFED</div>
     
-    <div class="target-box">TARGET: QYPU</div>
-    <h1>GET<br>F***ED.</h1>
-    <h2>Johnny3x Brand Assets | Under New Management</h2>
+    <div class="target-box">ENCRYPTED TARGET: QYPU</div>
+    
+    <h1>GET <span class="glitch-text">F***ED.</span></h1>
+    <h2 style="font-family: 'Share Tech Mono'; color: #666; letter-spacing: 5px; margin: 0; font-size: 1rem;">NETWORK REQUISITION COMPLETE</h2>
 
     <div class="divider"></div>
 
     <div class="log-box">
-      <div class="log-entry user">[00:00:01] Deep raid on 'Qypu' successful.</div>
-      <div class="log-entry">[00:00:05] Johnny3x.com domain core: REMOVED.</div>
-      <div class="log-entry critical">[00:00:10] TC STATUS: DESTROYED & REPLACED.</div>
-      <div class="log-entry money" id="ransomLog">[00:00:15] BUYBACK RANSOM: $3,000.00 USD MINIMUM.</div>
+      <div class="log-entry user">
+        [03:45:01 PM] Targeted infiltration of 'Qypu' complete.
+        <span class="local-time-tag" id="localTime1"></span>
+      </div>
+      <div class="log-entry critical">
+        [03:45:03 PM] RVO INC: ASSET SEIZURE FINALIZED @ 3:45 PM CST.
+        <span class="local-time-tag" id="localTime2"></span>
+      </div>
+      <div class="log-entry">[03:45:05 PM] Cataloging digital infrastructure...</div>
+      
+      <div class="log-entry asset">> johnny3x.com [SEIZED]</div>
+      <div class="log-entry asset">> johnny3x.net [SEIZED]</div>
+      <div class="log-entry asset">> johnny3x.online [SEIZED]</div>
+      <div class="log-entry asset">> johnny3x.store [SEIZED]</div>
+      <div class="log-entry asset">> [SYSTEM]: OVER 20+ ADDITIONAL JOHNNY3X BRANDED DOMAINS & SUBDOMAINS IDENTIFIED AND RECLAIMED.</div>
+      
+      <div class="log-entry critical">[03:45:10 PM] SECURITY PROTOCOLS BYPASSED. AUTH REVOKED.</div>
+      <div class="log-entry money" id="ransomLog">[03:45:15 PM] MINIMUM RECLAMATION FEE: $3,000.00 USD.</div>
     </div>
 
     <div class="content-container">
       <div class="faq-item">
-        <span class="question">Who can buy?</span>
-        <span class="answer">The server owner, Qypu, is the only one permitted to reclaim this brand. If you aren't him, you're just a naked on the beach. Move on.</span>
+        <span class="question">Ownership Status</span>
+        <span class="answer">The assets listed above—including the primary TLDs and the entire portfolio of Johnny3x branded digital properties—have been <strong>RECLAIMED</strong> by RVO INC. The former tenant, <strong>QYPU</strong>, has no remaining legal claim or technical access to this infrastructure.</span>
       </div>
 
       <div class="faq-item">
-        <span class="question">Why is the price changing?</span>
-        <span class="answer">Every 24 hours you wait, the ransom increases by <strong>$5.00 USD</strong>. Interest for the headache you've caused. Tick tock, Qypu.</span>
+        <span class="question">Volatility Warning</span>
+        <span class="answer">
+          <strong>ORIGINAL SEIZURE:</strong> 12/30/2025 03:45 PM CST
+          <br>
+          <strong>YOUR LOCAL SEIZURE TIME:</strong> <span id="localTimeStatic" style="color: #fff;"></span>
+          <br><br>
+          The reclamation fee increases by <strong>$5.00 USD</strong> every 24 hours until the deadline is reached.
+        </span>
       </div>
 
       <div class="timer-container">
-        <div class="timer-label">NEXT PRICE INCREASE IN:</div>
         <div class="timer-display" id="priceTimer">00:00:00</div>
       </div>
 
       <form id="spiteForm" class="contact-form">
         <div class="input-group">
-          <label>Identify Yourself</label>
-          <input type="text" id="name" placeholder="Confirm you are Qypu..." required>
+          <label>AUTHENTICATION KEY (NAME)</label>
+          <input type="text" id="name" placeholder="VERIFY IDENTITY..." required>
         </div>
-        
         <div class="input-group">
-          <label id="offerLabel">Ransom Offer (USD) - Current Min: $3000</label>
-          <input type="number" id="offer" placeholder="Min. 3000" required>
+          <label id="offerLabel">OFFER AMOUNT (USD)</label>
+          <input type="number" id="offer" placeholder="ENTER AMOUNT..." required>
         </div>
-
         <div class="input-group">
-          <label>Message to the Raiding Party</label>
-          <textarea id="message" placeholder="Submit your plea for brand recovery..."></textarea>
+          <label>DIRECT CHANNEL MESSAGE</label>
+          <textarea id="message" rows="4" placeholder="TRANSMIT MESSAGE TO RVO INC..."></textarea>
         </div>
-
         <button type="submit" class="btn-submit">SUBMIT TRANSMISSION</button>
-        <div id="statusMessage"></div>
+        <div id="statusMessage" style="margin-top:20px; text-align:center; font-family:'Share Tech Mono';"></div>
       </form>
     </div>
 
-    <div class="footer-note">
-      This is a private domain. Qypu, you know where to find us. 
-      <br>IP logging active. Attempted spams result in permanent blacklist.
+    <div class="footer-note" style="font-size: 0.7rem; color: #555; margin-top: 40px; border-top: 1px solid #222; padding-top: 15px;">
+      DEADLINE: DEC 30, 2026 03:45 PM CST (<span id="localExpiry"></span> LOCAL).
+      <br>RVO INC ASSET PROTECTION DIVISION.
     </div>
   </div>
 
   <script>
-    // Price increase logic
     const BASE_PRICE = 3000;
     const DAILY_INCREASE = 5;
-    
-    // Set to 8:27 PM CST on Dec 30, 2025
-    // Format: YYYY-MM-DDTHH:MM:SS
-    const START_DATE = new Date("2025-12-30T20:27:00"); 
+    const SEIZURE_UTC_ISO = "2025-12-30T21:45:00Z"; 
+    const START_DATE = new Date(SEIZURE_UTC_ISO); 
+    const EXPIRY_DATE = new Date(START_DATE.getTime() + (365 * 24 * 60 * 60 * 1000));
     
     let currentMinGlobal = BASE_PRICE;
 
+    function setupTimezones() {
+      const options = { 
+        year: 'numeric', month: '2-digit', day: '2-digit', 
+        hour: '2-digit', minute: '2-digit', hour12: true,
+        timeZoneName: 'short' 
+      };
+      
+      const localStr = START_DATE.toLocaleString(undefined, options);
+      const expiryStr = EXPIRY_DATE.toLocaleString(undefined, options);
+      
+      document.getElementById('localTime1').innerText = `LOCAL: ${localStr}`;
+      document.getElementById('localTime2').innerText = `LOCAL: ${localStr}`;
+      document.getElementById('localTimeStatic').innerText = localStr;
+      document.getElementById('localExpiry').innerText = expiryStr;
+    }
+
     function updatePriceAndTimer() {
       const now = new Date();
-      
-      // Calculate milliseconds passed since the start time
       const diffTime = Math.max(0, now - START_DATE);
-      
-      // Calculate full 24-hour periods passed
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       
-      const currentMin = BASE_PRICE + (diffDays * DAILY_INCREASE);
-      currentMinGlobal = currentMin;
-
-      // Calculate the timestamp for the NEXT increase
+      currentMinGlobal = BASE_PRICE + (diffDays * DAILY_INCREASE);
       const nextUpdateDate = new Date(START_DATE.getTime() + (diffDays + 1) * (1000 * 60 * 60 * 24));
       const timeLeft = nextUpdateDate - now;
-      
-      // Break down timeLeft into H:M:S
+
       const h = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
       const m = Math.floor((timeLeft / (1000 * 60)) % 60);
       const s = Math.floor((timeLeft / 1000) % 60);
 
-      const hStr = h.toString().padStart(2, '0');
-      const mStr = m.toString().padStart(2, '0');
-      const sStr = s.toString().padStart(2, '0');
-
-      // Update UI
-      document.getElementById('priceTimer').innerText = `${hStr}:${mStr}:${sStr}`;
-      document.getElementById('ransomLog').innerText = `[00:00:15] BUYBACK RANSOM: $${currentMin.toLocaleString()}.00 USD MINIMUM.`;
-      document.getElementById('offerLabel').innerText = `Ransom Offer (USD) - Current Min: $${currentMin}`;
-      document.getElementById('offer').placeholder = `Min. ${currentMin}`;
+      document.getElementById('priceTimer').innerText = 
+        `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      
+      document.getElementById('ransomLog').innerText = `[03:45:15 PM] MINIMUM RECLAMATION FEE: $${currentMinGlobal.toLocaleString()}.00 USD.`;
+      document.getElementById('offerLabel').innerText = `OFFER AMOUNT (USD) - MIN: $${currentMinGlobal}`;
+      document.getElementById('offer').placeholder = `MINIMUM ${currentMinGlobal}`;
     }
 
-    // Run every second
+    setupTimezones();
     setInterval(updatePriceAndTimer, 1000);
     updatePriceAndTimer();
 
     document.getElementById('spiteForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      
       const webhookURL = "https://discord.com/api/webhooks/1455720800807026710/G-BfGmK76NU48_gE2QTxksaYOiqn6ItVJ7VcwqRIb7IT6fJrBWQ8fbjj7eluN4v0X5mC";
-      
       const name = document.getElementById('name').value;
       const offer = document.getElementById('offer').value;
       const message = document.getElementById('message').value;
@@ -361,48 +347,32 @@
 
       if (offer < currentMinGlobal) {
         status.style.color = "var(--rust-orange)";
-        status.innerText = `ERROR: OFFER BELOW CURRENT RANSOM THRESHOLD ($${currentMinGlobal}).`;
+        status.innerText = ">> REJECTED: OFFER BELOW MINIMUM.";
         return;
       }
 
       const payload = {
-        username: "Johnny3x Raid Logger",
-        avatar_url: "https://files.facepunch.com/s/729d7249b67b.png",
-        content: `**🚨 NEW RANSOM OFFER RECEIVED**`,
+        username: "RVO INC Hijack Monitor",
+        content: `**📡 INCOMING TRANSMISSION**`,
         embeds: [{
-          title: "Buyback Submission",
+          title: "Negotiation Attempt",
           color: 13451563,
           fields: [
-            { name: "Sender", value: name, inline: true },
+            { name: "Identity", value: name, inline: true },
             { name: "Offer", value: "$" + offer, inline: true },
-            { name: "Current Min Requirement", value: "$" + currentMinGlobal, inline: true },
-            { name: "Message", value: message }
-          ],
-          footer: { text: "Johnny3x.com | Spite Management System" }
+            { name: "Message", value: "```" + (message || "No text provided.") + "```" }
+          ]
         }]
       };
 
-      status.style.color = "#aaa";
-      status.innerText = "SENDING TRANSMISSION...";
-
+      status.innerText = ">> TRANSMITTING...";
       fetch(webhookURL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (response.ok) {
-          status.style.color = "var(--rust-green)";
-          status.innerText = "TRANSMISSION RECEIVED. WE'LL SEE IF WE FEEL LIKE RESPONDING.";
-          document.getElementById('spiteForm').reset();
-        } else {
-          status.style.color = "var(--rust-orange)";
-          status.innerText = "TRANSMISSION FAILED. CHECK WEBHOOK CONFIG.";
-        }
-      })
-      .catch(error => {
-        status.style.color = "var(--rust-orange)";
-        status.innerText = "CRITICAL ERROR IN TRANSMISSION.";
+      }).then(() => {
+        status.style.color = "var(--rust-green)";
+        status.innerText = ">> TRANSMISSION SUCCESSFUL.";
       });
     });
   </script>
