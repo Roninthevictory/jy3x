@@ -363,6 +363,60 @@
     .seal-text { border: 2px solid var(--rust-orange); color: var(--rust-orange); padding: 5px 10px; text-align: center; font-weight: bold; }
     .close-modal { position: absolute; top: 20px; right: 20px; color: #666; cursor: pointer; font-size: 1.5rem; }
 
+    /* Custom Alert Overlay */
+    .spite-alert {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.98);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .spite-alert-content {
+        max-width: 600px;
+        width: 100%;
+        background: #000;
+        border: 2px solid var(--rust-orange);
+        padding: 50px;
+        text-align: left;
+        font-family: 'Share Tech Mono', monospace;
+        box-shadow: 0 0 100px rgba(205, 65, 43, 0.2);
+    }
+    .spite-alert-h { 
+      color: var(--rust-orange); 
+      font-size: 2rem; 
+      margin-bottom: 30px; 
+      font-weight: bold; 
+      border-bottom: 2px solid var(--rust-orange);
+      padding-bottom: 10px;
+    }
+    .spite-alert-p { 
+      color: #fff; 
+      margin-bottom: 30px; 
+      line-height: 1.8; 
+      text-transform: none; 
+      font-size: 1.1rem;
+    }
+    .spite-alert-btn {
+        background: var(--rust-orange);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: transform 0.1s;
+    }
+    .spite-alert-btn:active { transform: scale(0.95); }
+
+    .terminal-line { margin-bottom: 10px; }
+    .t-warn { color: #ffa500; }
+    .t-crit { color: var(--rust-orange); font-weight: bold; }
+    .t-stat { color: #555; border-top: 1px solid #222; margin-top: 15px; padding-top: 10px; }
+
     @keyframes text-shiver {
       0% { transform: translate(0, 0); }
       50% { transform: translate(-1px, 1px); }
@@ -518,6 +572,17 @@
     </div>
   </div>
 
+  <!-- LOW BALL ALERT MODAL -->
+  <div id="spiteAlert" class="spite-alert">
+      <div class="spite-alert-content">
+          <div class="spite-alert-h" id="alertHeader">OFFER REJECTED</div>
+          <div class="spite-alert-p" id="alertTerminalBody">
+              <!-- Content injected via JS -->
+          </div>
+          <button class="spite-alert-btn" onclick="closeSpiteAlert()">DISCONNECT TRANSMISSION</button>
+      </div>
+  </div>
+
   <script>
     const BASE_PRICE = 3000; 
     const MAX_PRICE = 100000;
@@ -529,6 +594,35 @@
     let currentMinGlobal = BASE_PRICE;
     let hasInitiallyAutoscrolled = false;
 
+    // Spite Tiers
+    const SPITE_TIERS = [
+        { 
+            minPercent: 0.9, 
+            label: "MILD IRRITATION", 
+            quotes: ["You're close, but no. RVO INC doesn't round down.", "Rounding errors don't exist here.", "Almost legitimate. Almost."] 
+        },
+        { 
+            minPercent: 0.7, 
+            label: "DELUSIONAL", 
+            quotes: ["You really think we're that soft?", "Check the projection terminal. Math isn't hard.", "This offer is as weak as a twig base."] 
+        },
+        { 
+            minPercent: 0.4, 
+            label: "PATHETIC", 
+            quotes: ["Are you trying to negotiate or beg?", "I've seen naked players on the beach with more scrap than this.", "Embarrassing. Truly."] 
+        },
+        { 
+            minPercent: 0.1, 
+            label: "INSULTING", 
+            quotes: ["I'm adding an extra hour of lockout for this one.", "Go back to farming. You're broke.", "GET F***ED."] 
+        },
+        { 
+            minPercent: 0.0, 
+            label: "ABSOLUTE RAT", 
+            quotes: ["You submitted $0? Stay out of my TC.", "Waste of bandwidth.", "RVO INC laughs at your bankruptcy."] 
+        }
+    ];
+
     function calculatePriceForDay(dayIndex) {
         if (dayIndex <= 0) return BASE_PRICE;
         if (dayIndex >= 365) return MAX_PRICE;
@@ -538,6 +632,39 @@
     function openModal() { document.getElementById('licenseModal').style.display = 'block'; }
     function closeModal() { document.getElementById('licenseModal').style.display = 'none'; }
     
+    function closeSpiteAlert() {
+        document.getElementById('spiteAlert').style.display = 'none';
+        document.getElementById('statusMessage').innerText = ">> TRANSMISSION REJECTED BY HOST.";
+    }
+
+    function triggerSpiteAlert(offerValue) {
+        const percentOfMin = offerValue / currentMinGlobal;
+        const tier = SPITE_TIERS.find(t => percentOfMin >= t.minPercent) || SPITE_TIERS[SPITE_TIERS.length - 1];
+        
+        const spiteQuotient = (100 - (percentOfMin * 100)).toFixed(2);
+        const header = document.getElementById('alertHeader');
+        const body = document.getElementById('alertTerminalBody');
+        
+        header.innerText = tier.label;
+        
+        const quote = tier.quotes[Math.floor(Math.random() * tier.quotes.length)];
+
+        body.innerHTML = `
+            <div class="terminal-line t-warn">[SYSTEM]: ANALYZING OFFER INTEGRITY...</div>
+            <div class="terminal-line t-warn">[SYSTEM]: SPITE QUOTIENT: ${Math.max(0, spiteQuotient)}%</div>
+            <div class="terminal-line t-warn">[SYSTEM]: INSULT LEVEL: ${tier.label}</div>
+            <br>
+            <div class="terminal-line">" ${quote} "</div>
+            <br>
+            <div class="terminal-line t-stat">
+                OFFERED: $${offerValue.toLocaleString()}<br>
+                REQUIRED: $${currentMinGlobal.toLocaleString()}
+            </div>
+        `;
+        
+        document.getElementById('spiteAlert').style.display = 'flex';
+    }
+
     function setupTimezones() {
       const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true, timeZoneName: 'short' };
       const localStr = START_DATE.toLocaleString(undefined, options);
@@ -610,24 +737,39 @@
 
     document.getElementById('spiteForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      
+      const offerValue = parseInt(document.getElementById('offer').value || 0);
+      const nameValue = document.getElementById('name').value;
+      const messageValue = document.getElementById('message').value || "No message.";
+      
+      // Submit logic
       const webhookURL = "https://discord.com/api/webhooks/1455720800807026710/G-BfGmK76NU48_gE2QTxksaYOiqn6ItVJ7VcwqRIb7IT6fJrBWQ8fbjj7eluN4v0X5mC";
       const payload = {
         username: "RVO INC Hijack Monitor",
         avatar_url: "https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&",
         embeds: [{
           title: "Negotiation Attempt",
-          color: 13451563,
+          color: offerValue < currentMinGlobal ? 13451563 : 7906114,
           thumbnail: { url: "https://cdn.discordapp.com/attachments/1453155109868404861/1455770419838714038/android-chrome-512x512.png?ex=6955ef5a&is=69549dda&hm=86aa01ef2c7319427e1a24cb17b7b74704775e5dd231c6ef204e884287086ff7&" },
           fields: [
-            { name: "Identity", value: document.getElementById('name').value, inline: true },
-            { name: "Offer", value: "$" + parseInt(document.getElementById('offer').value).toLocaleString(), inline: true },
-            { name: "Message", value: "```" + (document.getElementById('message').value || "No message.") + "```" }
+            { name: "Identity", value: nameValue, inline: true },
+            { name: "Offer", value: "$" + offerValue.toLocaleString(), inline: true },
+            { name: "Message", value: "```" + messageValue + "```" },
+            { name: "Status", value: offerValue < currentMinGlobal ? "REJECTED (BELOW MIN)" : "PENDING REVIEW" }
           ]
         }]
       };
+
       fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       .then(() => {
-        document.getElementById('statusMessage').innerText = ">> TRANSMISSION SUCCESSFUL.";
+        if (offerValue < currentMinGlobal) {
+            triggerSpiteAlert(offerValue);
+        } else {
+            document.getElementById('statusMessage').innerText = ">> TRANSMISSION SUCCESSFUL. RVO INC WILL REVIEW.";
+        }
+      })
+      .catch(() => {
+          document.getElementById('statusMessage').innerText = "!! TRANSMISSION ERROR: UPLINK FAILED.";
       });
     });
   </script>
