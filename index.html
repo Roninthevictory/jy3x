@@ -416,6 +416,28 @@
         </footer>
     </div>
 
+    <!-- WELCOME MODAL -->
+    <div id="welcome-modal" class="overlay" style="display: flex;">
+        <div class="modal-body" style="border-color: var(--success); max-width: 600px;">
+            <h2 style="font-family: 'Cinzel'; color: var(--success); border-bottom: 2px solid var(--success); padding-bottom: 10px; margin-top: 0;">Portal Access Authorized</h2>
+            
+            <div style="margin-top: 25px; line-height: 1.6; color: var(--text-primary);">
+                <p>Welcome to the <b>RVO Asset Reclamation Portal</b>. This site has been established to provide a formal, transparent bridge for the settlement of digital assets currently under requisition.</p>
+                
+                <p><b>What is happening?</b><br>
+                The domains associated with the Johnny3x Network were personally purchased and are legally owned by the Developer. Following a recent termination of that professional relationship, the Developer has moved these assets into a holding state under <b>RVO INC</b> to protect their market value.</p>
+                
+                <p><b>What does this mean for the Respondent?</b><br>
+                You have a 365-day window to negotiate a buyout and reclaim these domains. Each day, the settlement cost increases automatically according to a pre-defined schedule. If no settlement is reached within the year, the domains will be sold on the open market.</p>
+                
+                <p><b>Your Next Steps:</b><br>
+                You may review the legal grounding for this action, track the daily price adjustments, or submit a formal settlement offer via the portal below.</p>
+            </div>
+
+            <button class="btn-submit" style="width: 100%; background: var(--success);" onclick="toggleModal('welcome-modal', false)">Enter Portal</button>
+        </div>
+    </div>
+
     <!-- LEGAL MODAL -->
     <div id="legal-modal" class="overlay">
         <div class="modal-body">
